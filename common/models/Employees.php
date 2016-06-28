@@ -30,7 +30,9 @@ class Employees extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['firstname', 'lastname', 'group', 'dateofbirth', 'isworking'], 'required'],
             [['dateofbirth'], 'safe'],
+            [['dateofbirth'], 'default', 'value' => null],
             [['firstname', 'lastname', 'grouup'], 'string', 'max' => 100],
             [['isworking'], 'string', 'max' => 3],
         ];
